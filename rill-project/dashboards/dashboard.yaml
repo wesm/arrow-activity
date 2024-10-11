@@ -1,0 +1,27 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+
+type: metrics_view
+
+title: "Apache Arrow Activity"
+table: activity # Choose a table to underpin your dashboard
+timeseries: timestamp # Select an actual timestamp column (if any) from your table
+
+dimensions:
+  - column: username
+    label: "Username"
+    description: "Description of the dimension"
+  - column: name
+    label: "Display Name"
+    description: "The user's GitHub profile name"
+  - column: repository
+    label: "Repository"
+    description: "The GitHub repository where activity occurred"
+  - column: action_type
+    label: "Action Type"
+    description: "The type of action (commit, issue, comment, PR review)"
+
+measures:
+  - expression: "COUNT(*)"
+    label: "Number of Actions"
+    description: "Total number of user actions"
